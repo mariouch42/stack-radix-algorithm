@@ -1,7 +1,31 @@
 
 
 
+// Structure
+typedef struct s_stack
+{
+    int             value;   // القيمة الأصلية
+    int             index;   // الترتيب (0 إلى n-1)
+    struct s_stack  *next;
+}   t_stack;
 
+// Main sorting function
+void push_swap(t_stack **a, t_stack **b)
+{
+    int size = stack_size(*a);
+    
+    if (size == 2)
+        sort_two(a);
+    else if (size == 3)
+        sort_three(a);
+    else if (size <= 5)
+        sort_five(a, b);
+    else
+    {
+        index_stack(a);      // ← مهم!
+        radix_sort(a, b);
+    }
+}
 
 
 void push_swap(t_stack **a, t_stack **b)
