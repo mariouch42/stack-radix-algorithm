@@ -3,6 +3,8 @@
 
 // Structure
 typedef struct s_stack
+
+
 {
     int             value;   // القيمة الأصلية
     int             index;   // الترتيب (0 إلى n-1)
@@ -29,7 +31,9 @@ void push_swap(t_stack **a, t_stack **b)
 
 
 void push_swap(t_stack **a, t_stack **b)
+
 {
+
     int size = stack_size(*a);
     
     if (is_sorted(*a))
@@ -119,4 +123,5 @@ void radix_sort(t_stack **a, t_stack **b)
         
         i++;
     }
+
 }
