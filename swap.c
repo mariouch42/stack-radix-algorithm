@@ -1,6 +1,6 @@
 #include "push_swap.h"
 
-void swap(t_stack **stack)
+static void	swap(t_stack **stack)
 {
 	t_stack *first;
 	t_stack *second;
@@ -13,4 +13,10 @@ void swap(t_stack **stack)
 	first->next = second->next;
 	second->next = first;
 	*stack = second;
+}
+
+void sa(t_stack **a)
+{
+    swap(a);
+    write(1, "sa\n", 3);
 }

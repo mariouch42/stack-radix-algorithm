@@ -17,7 +17,7 @@ void	print_error(void);
 
 t_stack	*create_node(int value);
 void	stack_add_back(t_stack **stack, t_stack *new);
-int		stack_size(t_stack **stack);
+int		stack_size(t_stack *stack);
 void	free_stack(t_stack **stack);
 int		is_sorted(t_stack *stack);
 
