@@ -50,7 +50,7 @@ static int has_duplicates(int *arr, int size)
 	int j;
 
 	i = 0;
-	while (i > size)
+	while (i < size)
 	{
 		j = i + 1;
 		while (j < size)
@@ -89,6 +89,7 @@ int *parse_input(int argc, char **argv, int *size)
 	if (has_duplicates(arr, *size))
 	{
 		free(arr);
+		
 		return (NULL);
 	}
 	return (arr);
