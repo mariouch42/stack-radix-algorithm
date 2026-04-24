@@ -34,4 +34,11 @@ void	rra(t_stack **a);
 void	rrb(t_stack **b);
 void	rrr(t_stack **a, t_stack **b);
 
+int     get_min(t_stack *stack);
+int     get_max(t_stack *stack);
+int     get_position(t_stack *stack, int value);
+void    sort_two(t_stack **a);
+void    sort_three(t_stack **a);
+void    sort_five(t_stack **a, t_stack **b);
+
 #endif

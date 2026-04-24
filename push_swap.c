@@ -8,7 +8,7 @@ int main(int argc, char **argv)
 	t_stack *a;
 	t_stack *b;
 
-	if(argc < 2)
+	if (argc < 2)
 		return (0);
 	
 	arr = parse_input(argc, argv, &size);
@@ -26,15 +26,18 @@ int main(int argc, char **argv)
 		i++;
 	}
 	free(arr);
-	if(is_sorted(a))
+	if (is_sorted(a))
 	{
-		free(a);
+		free_stack(&a);
 		return (0);
 	}
-
+	if (size == 2)
+		sort_two(&a);
+	else if (size == 3)
+        sort_three(&a);
+	else if (size <= 5)
+		sort_five(&a, &b);
 	free_stack(&a);
 	free_stack(&b);
 	return (0);
-
-
 }

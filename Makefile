@@ -6,6 +6,8 @@ CFLAGS = -Wall -Wextra -Werror
 SRCS = push_swap.c \
        parsing.c \
        stack_utils.c \
+       sort_utils.c \
+       sort_small.c \
        swap.c \
        push.c \
        rotate.c \
