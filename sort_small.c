@@ -68,5 +68,6 @@ void sort_five(t_stack **a, t_stack **b)
 
 	}
 	sort_three(a);
-
+	while(*b)
+		pa(a, b);
 }
