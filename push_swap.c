@@ -1,4 +1,17 @@
 #include "push_swap.h"
+//#include <stdio.h>
+
+// void	print_stack(t_stack *stack)
+// {
+// 	while (stack)
+// 	{
+// 		printf("[%d]", stack->index);
+// 		if (stack->next)
+// 			printf(" → ");
+// 		stack = stack->next;
+// 	}
+// 	printf(" → NULL\n");
+// }
 
 int main(int argc, char **argv)
 {
@@ -37,6 +50,11 @@ int main(int argc, char **argv)
         sort_three(&a);
 	else if (size <= 5)
 		sort_five(&a, &b);
+	else
+	{
+		index_stack(&a);
+		radix_sort(&a, &b);
+	}
 	free_stack(&a);
 	free_stack(&b);
 	return (0);

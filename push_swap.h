@@ -40,5 +40,8 @@ int     get_position(t_stack *stack, int value);
 void    sort_two(t_stack **a);
 void    sort_three(t_stack **a);
 void    sort_five(t_stack **a, t_stack **b);
+void	index_stack(t_stack **stack);
+int		get_max_bits(int max_num);
+void	radix_sort(t_stack **a, t_stack **b);
 
 #endif
