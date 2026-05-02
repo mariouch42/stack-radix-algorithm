@@ -1,17 +1,17 @@
 #include "push_swap.h"
 
-void index_stack(t_stack **stack)
+void	index_stack(t_stack **stack)
 {
-	t_stack *current;
-	t_stack *compare;
-	int rank;
+	t_stack	*current;
+	t_stack	*compare;
+	int		rank;
 
 	current = *stack;
-	while(current)
+	while (current)
 	{
 		compare = *stack;
 		rank = 0;
-		while(compare)
+		while (compare)
 		{
 			if (compare->value < current->value)
 				rank++;
@@ -20,31 +20,32 @@ void index_stack(t_stack **stack)
 		current->index = rank;
 		current = current->next;
 	}
-
 }
+
 int	get_max_bits(int max_num)
 {
-	int bits;
-	
+	int	bits;
+
 	bits = 0;
-	while((max_num >> bits != 0))
+	while ((max_num >> bits != 0))
 		bits++;
 	return (bits);
 }
-void radix_sort(t_stack **a, t_stack **b)
+
+void	radix_sort(t_stack **a, t_stack **b)
 {
-	int size;
-	int max_bits;
-	int i;
-	int j;
+	int	size;
+	int	max_bits;
+	int	i;
+	int	j;
 
 	size = stack_size(*a);
 	max_bits = get_max_bits(size - 1);
 	i = 0;
-	while(i < max_bits)
+	while (i < max_bits)
 	{
 		j = 0;
-		while(j < size)
+		while (j < size)
 		{
 			if ((((*a)->index >> i) & 1) == 1)
 				ra(a);
@@ -52,7 +53,7 @@ void radix_sort(t_stack **a, t_stack **b)
 				pb(a, b);
 			j++;
 		}
-		while(*b)
+		while (*b)
 			pa(a, b);
 		i++;
 	}

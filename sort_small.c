@@ -1,24 +1,23 @@
 #include "push_swap.h"
 
-void sort_two(t_stack **a)
+void	sort_two(t_stack **a)
 {
 	if ((*a)->value > (*a)->next->value)
 		sa(a);
 }
 
-void sort_three(t_stack **a)
+void	sort_three(t_stack **a)
 {
-	int first;
-	int second;
-	int third;
+	int	first;
+	int	second;
+	int	third;
 
 	first = (*a)->value;
 	second = (*a)->next->value;
 	third = (*a)->next->next->value;
-
-	if(first > second && second < third && first < third)
+	if (first > second && second < third && first < third)
 		sa(a);
-	else if (first > second && second >third)
+	else if (first > second && second > third)
 	{
 		sa(a);
 		rra(a);
@@ -34,11 +33,11 @@ void sort_three(t_stack **a)
 		rra(a);
 }
 
-static void push_min_to_b(t_stack **a, t_stack **b)
+static	void	push_min_to_b(t_stack **a, t_stack **b)
 {
-	int min;
-	int pos;
-	int size;
+	int	min;
+	int	pos;
+	int	size;
 
 	min = get_min(*a);
 	pos = get_position(*a, min);
@@ -55,19 +54,18 @@ static void push_min_to_b(t_stack **a, t_stack **b)
 	}
 	pb(a, b);
 }
-void sort_five(t_stack **a, t_stack **b)
+
+void	sort_five(t_stack **a, t_stack **b)
 {
-	int size;
+	int	size;
 
 	size = stack_size(*a);
-
 	while (size > 3)
 	{
 		push_min_to_b(a, b);
 		size--;
-
 	}
 	sort_three(a);
-	while(*b)
+	while (*b)
 		pa(a, b);
 }

@@ -1,6 +1,6 @@
 #include "push_swap.h"
 
-static long ft_atol(char *str)
+static	long	ft_atol(char *str)
 {
 	long	result;
 	int		sign;
@@ -23,7 +23,7 @@ static long ft_atol(char *str)
 	return (result * sign);
 }
 
-static int is_valid_number(char *str)
+static	int	is_valid_number(char *str)
 {
 	int		i;
 	long	num;
@@ -40,14 +40,15 @@ static int is_valid_number(char *str)
 		i++;
 	}
 	num = ft_atol(str);
-	if(num > INT_MAX || num < INT_MIN)
+	if (num > INT_MAX || num < INT_MIN)
 		return (0);
 	return (1);
 }
-static int has_duplicates(int *arr, int size)
+
+static	int	has_duplicates(int *arr, int size)
 {
-	int i;
-	int j;
+	int	i;
+	int	j;
 
 	i = 0;
 	while (i < size)
@@ -55,7 +56,7 @@ static int has_duplicates(int *arr, int size)
 		j = i + 1;
 		while (j < size)
 		{
-			if(arr[i] == arr[j])
+			if (arr[i] == arr[j])
 				return (1);
 			j++;
 		}
@@ -64,7 +65,7 @@ static int has_duplicates(int *arr, int size)
 	return (0);
 }
 
-int *parse_input(int argc, char **argv, int *size)
+int	*parse_input(int argc, char **argv, int *size)
 {
 	int	*arr;
 	int	i;
@@ -73,7 +74,6 @@ int *parse_input(int argc, char **argv, int *size)
 	arr = malloc(sizeof(int) * (*size));
 	if (!arr)
 		return (NULL);
-
 	i = 0;
 	while (i < *size)
 	{
@@ -85,17 +85,15 @@ int *parse_input(int argc, char **argv, int *size)
 		arr[i] = (int)ft_atol(argv[i + 1]);
 		i++;
 	}
-
 	if (has_duplicates(arr, *size))
 	{
 		free(arr);
-		
 		return (NULL);
 	}
 	return (arr);
 }
 
-void print_error(void)
+void	print_error(void)
 {
-    write(2, "Error\n", 6);
+	write(2, "Error\n", 6);
 }

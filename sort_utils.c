@@ -1,14 +1,13 @@
 #include "push_swap.h"
 
-int get_min(t_stack *stack)
+int	get_min(t_stack *stack)
 {
-	int min;
+	int	min;
 
 	if (!stack)
 		return (0);
-	
 	min = stack->value;
-	while(stack)
+	while (stack)
 	{
 		if (stack->value < min)
 			min = stack->value;
@@ -17,14 +16,14 @@ int get_min(t_stack *stack)
 	return (min);
 }
 
-int get_max(t_stack *stack)
+int	get_max(t_stack *stack)
 {
-	int max;
+	int	max;
 
 	if (!stack)
 		return (0);
 	max = stack->value;
-	while(stack)
+	while (stack)
 	{
 		if (stack->value > max)
 			max = stack->value;
@@ -33,13 +32,14 @@ int get_max(t_stack *stack)
 	return (0);
 }
 
-int get_position(t_stack *stack, int value)
+int	get_position(t_stack *stack, int value)
 {
-	int pos;
+	int	pos;
+
 	pos = 0;
 	while (stack)
 	{
-		if(stack->value == value)
+		if (stack->value == value)
 			return (pos);
 		pos++;
 		stack = stack->next;

@@ -1,10 +1,10 @@
 #include "push_swap.h"
 
-t_stack *create_node(int value)
+t_stack	*create_node(int value)
 {
-	t_stack *new ;
+	t_stack	*new ;
 
-	new =  malloc(sizeof(t_stack));
+	new = malloc(sizeof(t_stack));
 	if (!new)
 		return (NULL);
 	new->value = value;
@@ -13,14 +13,14 @@ t_stack *create_node(int value)
 	return (new);
 }
 
-void stack_add_back(t_stack **stack, t_stack *new)
+void	stack_add_back(t_stack **stack, t_stack *new)
 {
-	t_stack *tmp;
+	t_stack	*tmp;
 
-	if(!*stack)
+	if (!*stack)
 	{
 		*stack = new;
-		return;
+		return ;
 	}
 	tmp = *stack;
 	while (tmp->next)
@@ -28,12 +28,12 @@ void stack_add_back(t_stack **stack, t_stack *new)
 	tmp->next = new;
 }
 
-int stack_size(t_stack *stack)
+int	stack_size(t_stack *stack)
 {
-	int size;
+	int	size;
 
 	size = 0;
-	while(stack)
+	while (stack)
 	{
 		size++;
 		stack = stack->next;
@@ -41,9 +41,9 @@ int stack_size(t_stack *stack)
 	return (size);
 }
 
-void free_stack(t_stack **stack)
+void	free_stack(t_stack **stack)
 {
-	t_stack *tmp;
+	t_stack	*tmp;
 
 	while (*stack)
 	{
@@ -53,15 +53,15 @@ void free_stack(t_stack **stack)
 	}
 }
 
-int is_sorted(t_stack *stack)
+int	is_sorted(t_stack *stack)
 {
-    if (!stack)
-        return (1);
-    while (stack->next)
-    {
-        if (stack->value > stack->next->value)
-            return (0);
-        stack = stack->next;
-    }
-    return (1);
+	if (!stack)
+		return (1);
+	while (stack->next)
+	{
+		if (stack->value > stack->next->value)
+			return (0);
+		stack = stack->next;
+	}
+	return (1);
 }

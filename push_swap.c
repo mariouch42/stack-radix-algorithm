@@ -1,29 +1,15 @@
 #include "push_swap.h"
-//#include <stdio.h>
 
-// void	print_stack(t_stack *stack)
-// {
-// 	while (stack)
-// 	{
-// 		printf("[%d]", stack->index);
-// 		if (stack->next)
-// 			printf(" → ");
-// 		stack = stack->next;
-// 	}
-// 	printf(" → NULL\n");
-// }
-
-int main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
-	int *arr;
-	int size;
-	int i;
-	t_stack *a;
-	t_stack *b;
+	int		*arr;
+	int		size;
+	int		i;
+	t_stack	*a;
+	t_stack	*b;
 
 	if (argc < 2)
 		return (0);
-	
 	arr = parse_input(argc, argv, &size);
 	if (!arr)
 	{
@@ -33,7 +19,7 @@ int main(int argc, char **argv)
 	a = NULL;
 	b = NULL;
 	i = 0;
-	while(i < size)
+	while (i < size)
 	{
 		stack_add_back(&a, create_node(arr[i]));
 		i++;
@@ -47,7 +33,7 @@ int main(int argc, char **argv)
 	if (size == 2)
 		sort_two(&a);
 	else if (size == 3)
-        sort_three(&a);
+		sort_three(&a);
 	else if (size <= 5)
 		sort_five(&a, &b);
 	else
