@@ -1,16 +1,16 @@
-#include "push_swap.c"
+#include "push_swap.h"
 
 size_t	ft_strlen(const char *s)
 {
 	size_t	i;
 
 	i = 0;
-	while(s[i])
+	while (s[i])
 		i++;
 	return (i);
 }
 
-static	char *ft_strdup(const char *s)
+static	char	*ft_strdup(const char *s)
 {
 	char	*dup;
 	size_t	i;
@@ -18,9 +18,9 @@ static	char *ft_strdup(const char *s)
 	i = ft_strlen(s);
 	dup = malloc(sizeof(char) * (i + 1));
 	if (!dup)
-		return(NULL);
+		return (NULL);
 	i = 0;
-	while(s[i])
+	while (s[i])
 	{
 		dup[i] = s[i];
 		i++;
@@ -34,7 +34,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	char	*sub;
 	size_t	i;
 	size_t	s_len;
- 
+
 	i = 0;
 	if (!s)
 		return (NULL);
@@ -56,7 +56,7 @@ size_t	count_words(const char *s, char c)
 {
 	size_t	i;
 	size_t	count;
- 
+
 	i = 0;
 	count = 0;
 	while (s[i])

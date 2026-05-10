@@ -1,32 +1,9 @@
 #include "push_swap.h"
 
-static	long	ft_atol(char *str)
+int	is_valid_number(char *str)
 {
-	long	result;
-	int		sign;
-
-	result = 0;
-	sign = 1;
-	while (*str == ' ' || (*str >= 9 && *str <= 13))
-		str++;
-	if (*str == '-' || *str == '+')
-	{
-		if (*str == '-')
-			sign = -1;
-		str++;
-	}
-	while (*str >= '0' && *str <= '9')
-	{
-		result = result * 10 + (*str - '0');
-		str++;
-	}
-	return (result * sign);
-}
-
-static	int	is_valid_number(char *str)
-{
-	int		i;
 	long	num;
+	int		i;
 
 	i = 0;
 	if (str[i] == '-' || str[i] == '+')
@@ -45,45 +22,43 @@ static	int	is_valid_number(char *str)
 	return (1);
 }
 
-static	int	has_duplicates(int *arr, int size)
+static int	fill_arr(int *arr, char *str, int size)
 {
-	int	i;
-	int	j;
+	char	**words;
+	int		i;
 
+	words = ft_split(str, ' ');
+	if (!words)
+		return (0);
 	i = 0;
 	while (i < size)
 	{
-		j = i + 1;
-		while (j < size)
+		if (!is_valid_number(words[i]))
 		{
-			if (arr[i] == arr[j])
-				return (1);
-			j++;
+			free_all(words, size);
+			return (0);
 		}
+		arr[i] = (int)ft_atol(words[i]);
 		i++;
 	}
-	return (0);
+	free_all(words, size);
+	return (1);
 }
 
-int	*parse_input(int argc, char **argv, int *size)
+static int	*parse_single(char *str, int *size)
 {
 	int	*arr;
-	int	i;
 
-	*size = argc - 1;
+	*size = (int)count_words(str, ' ');
+	if (*size == 0)
+		return (NULL);
 	arr = malloc(sizeof(int) * (*size));
 	if (!arr)
 		return (NULL);
-	i = 0;
-	while (i < *size)
+	if (!fill_arr(arr, str, *size))
 	{
-		if (!is_valid_number (argv[i + 1]))
-		{
-			free(arr);
-			return (NULL);
-		}
-		arr[i] = (int)ft_atol(argv[i + 1]);
-		i++;
+		free(arr);
+		return (NULL);
 	}
 	if (has_duplicates(arr, *size))
 	{
@@ -91,6 +66,14 @@ int	*parse_input(int argc, char **argv, int *size)
 		return (NULL);
 	}
 	return (arr);
+}
+
+int	*parse_input(int argc, char **argv, int *size)
+{
+	if (argc == 2)
+		return (parse_single(argv[1], size));
+	*size = argc - 1;
+	return (parse_multi(argv, *size));
 }
 
 void	print_error(void)

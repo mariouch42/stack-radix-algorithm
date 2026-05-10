@@ -39,4 +39,13 @@ void	sort_five(t_stack **a, t_stack **b);
 void	index_stack(t_stack **stack);
 int		get_max_bits(int max_num);
 void	radix_sort(t_stack **a, t_stack **b);
+size_t	ft_strlen(const char *s);
+char	*ft_substr(char const *s, unsigned int start, size_t len);
+size_t	count_words(const char *s, char c);
+void	free_all(char **arr, size_t k);
+char	**ft_split(char const *s, char c);
+long	ft_atol(char *str);
+int		has_duplicates(int *arr, int size);
+int		*parse_multi(char **argv, int size);
+int		is_valid_number(char *str);
 #endif

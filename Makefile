@@ -5,6 +5,7 @@ CFLAGS = -Wall -Wextra -Werror
 
 SRCS = push_swap.c \
        parsing.c \
+       parsing_utils.c \
        stack_utils.c \
        sort_utils.c \
        sort_small.c \
@@ -12,7 +13,10 @@ SRCS = push_swap.c \
        push.c \
        rotate.c \
        reverse_rotate.c \
-       sort_large.c
+       sort_large.c \
+       ft_split.c \
+       ft_split_utils.c 
+       
 
 OBJS = $(SRCS:.c=.o)
 
